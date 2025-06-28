@@ -1,1 +1,14 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+    --main-text: 'Inter';
+    --accent-text: 'PressStart2P';
+    --text-weight: 400;
+    --heading-text-weight: 700;
+    --bg-color: rgba(255, 255, 255, 1);
+    --width-size: 700px;
+    --border-color: rgba(0, 0, 0, 1);
+    --font-size: 18px;
+    --contour-color: black;
+    --animation-fill-color: #FF0000; 
+}
+
