@@ -95,7 +95,7 @@
   filter: hue-rotate(180deg);
 }
 
-.filter_saturate{
+.filter_saturate {
   filter: saturate(8);
 }
 
@@ -213,7 +213,7 @@
   transition: outline 0.3s ease;
 }
 
-.card__icon-button:focus-visible {
+.card__icon-button:focus {
   outline: none;
 }
 
@@ -282,11 +282,13 @@
 }
 
 @keyframes heart {
-  from { 
+  
+  from {
     transform: scale(1); 
     transform-origin: center;
   }
-  to { 
+  
+  to {
     transform: scale(1.25); 
     transform-origin: center;
   }
@@ -297,12 +299,14 @@
 }
 
 @keyframes sparks {
-  0% { 
+  
+  0% {
     fill: var(--animation-fill-color);
     opacity: 0; 
     transform-origin: center;
   }
-  100% { 
+  
+  100% {
     opacity: 100%;
     transform-origin: center;
   }
@@ -315,18 +319,11 @@
 
 .button__text {
   position: relative;
-  z-index: 1; 
-  color: white; 
+  z-index: 1;
+  color: white;
   mix-blend-mode: difference;
 }
 
-.footer{
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
 
 .footer_button {
   display: flex;
@@ -413,7 +410,7 @@
     block-size: 369px;
   }
 
-  .card_text{
+  .card_text {
     padding-top: 21px;
     padding-bottom: 25px;
 }
@@ -427,13 +424,6 @@
     gap: 5px;
   }
 
-.footer {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
 
 .footer_button {
   display: flex;
