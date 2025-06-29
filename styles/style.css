@@ -15,26 +15,28 @@
   min-block-size: 100dvb;
   font-family: var(--main-text), sans-serif;
   font-variation-settings: "wght" var(--text-weight);
-  
+  background-color: #fff;
 }
 
 .background {
   height: 100vh;
   background-image: 
-    repeating-linear-gradient(to left, #d3d3d3 0px, transparent 2px), 
-    repeating-linear-gradient(to top, #d3d3d3 0px, transparent 2px), 
-    linear-gradient(to top, #e7e7e7 0.01%, #1a1a1a 100%);
+    repeating-linear-gradient(90deg, #d3d3d3 0 2px, transparent 2px 4px), 
+    repeating-linear-gradient(180deg, #d3d3d3 0 2px, transparent 2px 4px), 
+    linear-gradient(180deg, #e7e7e7 0.01%, #1a1a1a 100%);
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .header {
-  font-family: var(--accent-text);
+  font-family: var(--accent-text), fantasy;
   font-weight: var(--text-weight);
   min-inline-size: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
-  min-block-size: clamp(20.4375rem, 19.5352rem + 3.8498vw, 23rem);
   max-inline-size: var(--width_head);
   display: flex;
   flex-direction: column;
+  padding-top: 128px;
+  padding-bottom: 128px;
   gap: 20px;
   justify-content: center;
   align-items: center;
@@ -76,13 +78,14 @@
 .card_image_label {
   border: 2px solid var(--border-color);
   position: relative;
+  overflow: hidden;
 }
 
 .card_image {
   display: block;
   background-repeat: no-repeat;
-  object-fit: cover;
   aspect-ratio: 1/1;
+  object-fit: cover;
   max-inline-size: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
   max-block-size: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
 }
@@ -117,7 +120,7 @@
 
 .card_label {
   font-size: 14px;
-  font-family: var(--accent-text);
+  font-family: var(--accent-text), fantasy;
   opacity: 50%;
   position: absolute;
   padding-inline-end: clamp(0.8125rem, 0.5484rem + 1.1268vw, 1.5625rem);
@@ -126,6 +129,8 @@
   inline-size: 100%;
   display: flex;
   justify-content: end;
+  z-index: 1;
+  text-shadow: 0 0 1px #fff;
 }
 
 @supports (-webkit-text-stroke: 1px rgba(255, 255, 255, 1)) or (text-stroke: 1px rgba(255, 255, 255, 1)) {
@@ -168,7 +173,7 @@
   padding: 0;
   cursor: pointer;
   min-width: 130px;
-  font-family: var(--accent-text);
+  font-family: var(--accent-text), fantasy;
   font-size: 14px;
   border: 2px solid var(--border-color);
   transition: box-shadow 0.3s ease;
@@ -236,7 +241,7 @@
 
 .like-icon:not(:hover) .core {
   fill: transparent;
-  transition: fill 0.3s ease 0.05s;
+  transition: fill 0.3s ease 0.03s;
 }
 
 .like-icon:active .core {
@@ -281,36 +286,6 @@
   animation: heart 0.3s ease-in 0.1s;
 }
 
-@keyframes heart {
-  
-  from {
-    transform: scale(1);
-    transform-origin: center;
-  }
-  
-  to {
-    transform: scale(1.25);
-    transform-origin: center;
-  }
-}
-
-.like-icon.is-liked .sparks {
-  animation: sparks 0.3s ease-in 0.3s;
-}
-
-@keyframes sparks {
-  
-  0% {
-    fill: var(--animation-fill-color);
-    opacity: 0;
-    transform-origin: center;
-  }
-  
-  100% {
-    opacity: 100%;
-    transform-origin: center;
-  }
-}
 
 .like-icon:not(.is-liked) .contour {
   fill: var(--contour-color);
@@ -345,7 +320,7 @@
 }
 
 .modal_card[open] {
-  font-family: var(--accent-text), sans-serif;
+  font-family: var(--accent-text), fantasy;
   font-weight: var(--text-weight);
   font-size: 14px;
   line-height: 150%;
@@ -355,7 +330,6 @@
   flex-direction: column;
   gap: 30px;
   padding: 30px;
-  max-block-size: 191px;
   max-inline-size: clamp(21.3125rem, 21.0484rem + 1.1268vw, 21rem);;
 }
 
@@ -376,6 +350,9 @@
 }
 
 .modal_card[open] .button_modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   max-inline-size: clamp(16.0625rem, 15.2702rem + 3.3803vw, 18.3125rem);
   max-block-size: 38px;
   padding: 12.5px clamp(7.15625rem, 6.7601rem + 1.6901vw, 8.28125rem);
@@ -383,7 +360,6 @@
 
 .modal_card[open] .button_modal_text {
   font-size: 14px;
-  padding: 12.5px auto;
   line-height: 90%;
   text-transform: uppercase;
 }
@@ -393,9 +369,12 @@
   background-color: #000;
 }
 
+
 @media (max-width: 376px) {
   .header {
     max-inline-size: 100%;
+    padding-top: 120px;
+    padding-bottom: 120px;
   }
 
   .card_title {
@@ -424,16 +403,20 @@
   }
 
 
-.button_save {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 9px;
-  min-height: 84px;
+  .button_save {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    min-height: 84px;
+  }
+
+  .modal_card[open] {
+  padding: 30px 42px;
 }
 
-.floopy {
-  width: 28px;
+ .modal_card[open] .floopy-2 {
+  width: 39px;
 }
 }
